@@ -1,0 +1,35 @@
+{
+  "license": "Artistic-2.0",
+  "build-depends": [
+
+  ],
+  "resources": [
+
+  ],
+  "test-depends": [
+    "Test",
+    "Test::META"
+  ],
+  "support": {
+    "source": "git://github.com/zostay/p6-ULID.git"
+  },
+  "depends": [
+  ],
+  "provides": {
+    "ULID": "lib/ULID.pm6",
+    "X::ULID": "lib/ULID.pm6"
+  },
+  "description": "Universally Unique Lexicoraphically Sortable Identifiers for Perl 6",
+  "version": "0.0.0",
+  "name": "ULID",
+  "auth": "github:zostay",
+  "source-url": "git://github.com/zostay/p6-ULID.git",
+  "authors": [
+    "Sterling Hanenkamp <hanenkamp@cpan.org>"
+  ],
+  "tags": [
+
+  ],
+  "perl": "6.c",
+  "meta-version": "0"
+}
