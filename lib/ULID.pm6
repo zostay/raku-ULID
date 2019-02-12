@@ -1,6 +1,6 @@
 use v6;
 
-unit module ULID:auth<github:zostay>:ver<0.0.0>;
+unit module ULID:auth<github:zostay>:ver<0.1.0>;
 
 class GLOBAL::X::ULID is Exception {
     has $.message;
