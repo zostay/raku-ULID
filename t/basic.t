@@ -93,20 +93,20 @@ subtest 'ulid-random-monotonic-overflow' => {
 };
 
 subtest 'ulid' => {
-    my @ulid = ulid($millis);
+    my $ulid = ulid($millis);
 
-    is @ulid.elems, 26, 'ulid is the expected bytes long';
-    is @ulid[^10], @expected-time, 'ulid has the expected time';
+    is $ulid.chars, 26, 'ulid is the expected bytes long';
+    is $ulid.substr(0, 10), @expected-time.join, 'ulid has the expected time';
 
-    @ulid = ulid($millis, :monotonic);
-    is @ulid.elems, 26, 'ulid is the expected bytes long';
-    is @ulid[^10], @expected-time, 'ulid has the expected time';
+    $ulid = ulid($millis, :monotonic);
+    is $ulid.chars, 26, 'ulid is the expected bytes long';
+    is $ulid.substr(0, 10), @expected-time.join, 'ulid has the expected time';
 
-    @ulid = ulid;
-    is @ulid.elems, 26, 'ulid is the expected bytes long';
+    $ulid = ulid;
+    is $ulid.chars, 26, 'ulid is the expected bytes long';
 
-    @ulid = ulid($millis, random-function => -> $x { 0 });
-    is @ulid, flat(@expected-time, <0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0>), 'passing a random-function works';
+    $ulid = ulid($millis, random-function => -> $x { 0 });
+    is $ulid, ([~] flat(@expected-time, <0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0>)), 'passing a random-function works';
 }
 
 done-testing;
